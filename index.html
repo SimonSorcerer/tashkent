@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Galaxy generator test</title>
+    <script src="galaxyGenerator.js"></script>
+    <script src="galaxyVisualizer.js"></script>
+</head>
+<body>
+Galaxy visualization:
+<div id="galaxy"></div>
+
+<script type="text/javascript">
+    var galaxy = window.Tashkent.galaxyGenerator(0.7);
+    window.Tashkent.galaxyVisualizer("galaxy", galaxy);
+</script>
+</body>
+</html>
