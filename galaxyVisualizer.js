@@ -13,8 +13,10 @@
         ctx.fillStyle = "black";
 
         galaxy.stars.forEach(function (star) {
-            ctx.fillRect(star.x - 1, star.y - 1, 3, 3);
-            console.log('[stars] Written star to: ' + star.x + ', ' + star.y);
+            var diameter = star.size * 2;
+
+            ctx.fillRect(star.x - 1, star.y - 1, diameter, diameter);
+            //console.log('[stars] Written star to: ' + star.x + ', ' + star.y);
         });
 
         root.appendChild(canvas);

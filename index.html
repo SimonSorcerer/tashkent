@@ -3,6 +3,8 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Galaxy generator test</title>
+    <script src="planetGenerator.js"></script>
+    <script src="starGenerator.js"></script>
     <script src="galaxyGenerator.js"></script>
     <script src="galaxyVisualizer.js"></script>
 </head>
@@ -11,8 +13,8 @@ Galaxy visualization:
 <div id="galaxy"></div>
 
 <script type="text/javascript">
-    var galaxy = window.Tashkent.galaxyGenerator(0.7);
-    window.Tashkent.galaxyVisualizer("galaxy", galaxy);
+    var galaxy = Tashkent.galaxyGenerator(0.6);
+    Tashkent.galaxyVisualizer("galaxy", galaxy);
 </script>
 </body>
 </html>

@@ -11,21 +11,24 @@
     }
 
     function generateStars(dimensions, density) {
-        var starOccurrenceProbability = MAX_STARS_PER_UNIT * density,
-            stars = [];
+        var starGenerator = Tashkent.starGenerator,
+            starOccurrenceProbability = MAX_STARS_PER_UNIT * density,
+            stars = [],
+            planetCount = 0;
 
         for (var i = 0; i <= dimensions.width; i++) {
             for (var j = 0; j <= dimensions.height; j++) {
                 if (Math.random() <= starOccurrenceProbability) {
-                    stars.push({
-                        x: i,
-                        y: j
-                    });
+                    stars.push(starGenerator.generate(i, j));
                 }
             }
         }
 
+        stars.forEach(function (star) {
+            planetCount += star.planets.length;
+        });
         console.log('[stars] Generated ' + stars.length + ' stars');
+        console.log('[planets] Generated ' + planetCount + ' planets');
         return stars;
     }
 
