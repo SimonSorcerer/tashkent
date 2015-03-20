@@ -1,4 +1,4 @@
-(function() {
+define(function () {
     function random(min, max) {
         return Math.floor(Math.random() * Math.abs(max - min + 1) + min);
     }
@@ -11,8 +11,7 @@
         };
     }
 
-    window.Tashkent = window.Tashkent || {};
-    window.Tashkent.planetGenerator = {
+    return {
         generate: generate
     };
-}());
+});

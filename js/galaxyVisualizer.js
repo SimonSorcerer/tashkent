@@ -1,4 +1,4 @@
-(function() {
+define(function () {
     function galaxyVisualizer(elementId, galaxy) {
         var root = document.getElementById(elementId),
             canvas;
@@ -16,12 +16,10 @@
             var diameter = star.size * 2;
 
             ctx.fillRect(star.x - 1, star.y - 1, diameter, diameter);
-            //console.log('[stars] Written star to: ' + star.x + ', ' + star.y);
         });
 
         root.appendChild(canvas);
     }
 
-    window.Tashkent = window.Tashkent || {};
-    window.Tashkent.galaxyVisualizer = galaxyVisualizer;
-}());
+    return galaxyVisualizer;
+});

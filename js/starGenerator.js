@@ -1,4 +1,4 @@
-(function() {
+define(['planetGenerator'], function (planetGenerator) {
     var PLANETS_PER_UNIT = 2,
         PLANET_DIVERGENCE_FACTOR = 1,
         STAR_SIZE_LIST = {
@@ -22,8 +22,7 @@
     }
 
     function generatePlanets(starSize) {
-        var planetGenerator = Tashkent.planetGenerator,
-            planetCount = getPlanetCount(starSize),
+        var planetCount = getPlanetCount(starSize),
             planets = [];
 
         globalPlanetCount += planetCount;
@@ -52,8 +51,7 @@
         };
     }
 
-    window.Tashkent = window.Tashkent || {};
-    window.Tashkent.starGenerator = {
+    return {
         generate: generate
     };
-}());
+});

@@ -1,4 +1,4 @@
-(function() {
+define(['starGenerator'], function (starGenerator) {
     var MAX_STARS_PER_UNIT = 0.001;
 
     function setDefaults() {
@@ -11,8 +11,7 @@
     }
 
     function generateStars(dimensions, density) {
-        var starGenerator = Tashkent.starGenerator,
-            starOccurrenceProbability = MAX_STARS_PER_UNIT * density,
+        var starOccurrenceProbability = MAX_STARS_PER_UNIT * density,
             stars = [],
             planetCount = 0;
 
@@ -44,6 +43,5 @@
         return galaxy;
     }
 
-    window.Tashkent = window.Tashkent || {};
-    window.Tashkent.galaxyGenerator = galaxyGenerator;
-}());
+    return galaxyGenerator;
+});
