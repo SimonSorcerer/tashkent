@@ -39,7 +39,7 @@ define(['planetGenerator'], function (planetGenerator) {
         return random(0, optionsCount);
     }
 
-    function generate(x, y) {
+    function generate(x, y, z) {
         var size = getRandomStarSize(),
             planets = generatePlanets(size);
 
@@ -47,7 +47,8 @@ define(['planetGenerator'], function (planetGenerator) {
             size: size,
             planets: planets,
             x: x,
-            y: y
+            y: y,
+            z: z
         };
     }
 

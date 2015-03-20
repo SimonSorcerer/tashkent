@@ -5,7 +5,8 @@ define(['starGenerator'], function (starGenerator) {
         return {
             dimensions: {
                 width: 1000,
-                height: 1000
+                height: 1000,
+                depth: 100
             }
         };
     }
@@ -17,8 +18,10 @@ define(['starGenerator'], function (starGenerator) {
 
         for (var i = 0; i <= dimensions.width; i++) {
             for (var j = 0; j <= dimensions.height; j++) {
-                if (Math.random() <= starOccurrenceProbability) {
-                    stars.push(starGenerator.generate(i, j));
+                for (var k = 0; k <= dimensions.depth; k++) {
+                    if (Math.random() <= starOccurrenceProbability) {
+                        stars.push(starGenerator.generate(i, j, k));
+                    }
                 }
             }
         }
