@@ -14,11 +14,10 @@ requirejs.config({
     }
 });
 
-define(['galaxyGenerator', 'galaxyVisualizer', 'galaxy3DVisualizer', 'three'], function (galaxyGenerator, galaxyVisualizer, galaxy3DVisualizer, three) {
+define(['galaxyGenerator', 'galaxy3DVisualizer'], function (galaxyGenerator, galaxy3DVisualizer) {
     'use strict';
 
     var galaxy = galaxyGenerator(0.6);
 
-    //galaxyVisualizer("galaxy", galaxy);
     galaxy3DVisualizer('galaxy', galaxy);
 });
