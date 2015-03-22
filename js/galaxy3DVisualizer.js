@@ -1,4 +1,5 @@
 define(['three'], function (Three) {
+    'use strict';
 
     function createCamera() {
         var WIDTH = window.innerWidth - 30,
@@ -6,21 +7,23 @@ define(['three'], function (Three) {
             angle = 45,
             aspect = WIDTH / HEIGHT,
             near = 0.1,
-            far = 300;
+            far = 300,
+            camera;
 
-        var camera = new Three.PerspectiveCamera(angle, aspect, near, far);
-        camera.position.set(0, 0, 0);
-        camera.lookAt(50, 50, 50);
+        camera = new Three.PerspectiveCamera(angle, aspect, near, far);
+        camera.position.set(-10, -10, -10);
+        camera.lookAt(500, 500, 500);
 
         return camera;
     }
 
     function createScene() {
-        var scene = new Three.Scene();
+        var scene = new Three.Scene(),
+            light;
 
-        var light = new Three.SpotLight(0xFFFFFF, 1, 0, Math.PI / 2, 1);
-        light.position.set(4000, 4000, 1500);
-        light.target.position.set (1000, 3800, 1000);
+        light = new Three.SpotLight(0xffffff, 1, 0, Math.PI / 2, 1);
+        light.position.set(2000, 2000, 2000);
+        light.target.position.set (0, 0, 0);
 
         scene.add(light);
 
@@ -52,11 +55,10 @@ define(['three'], function (Three) {
         scene = createScene();
 
         galaxy.stars.forEach(function (star) {
-            var diameter = star.size * 2;
-
-            var geometry = new Three.BoxGeometry(diameter, diameter, diameter);
-            var material = new Three.MeshBasicMaterial( {color: 0xffffff} );
-            var cube = new THREE.Mesh( geometry, material );
+            var diameter = star.size * 2,
+                geometry = new Three.BoxGeometry(diameter, diameter, diameter),
+                material = new Three.MeshBasicMaterial({color: 0x00ff00}),
+                cube = new Three.Mesh( geometry, material );
 
             cube.position.set(star.x, star.y, star.z);
 

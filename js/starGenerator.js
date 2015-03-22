@@ -1,4 +1,6 @@
 define(['planetGenerator'], function (planetGenerator) {
+    'use strict';
+
     var PLANETS_PER_UNIT = 2,
         PLANET_DIVERGENCE_FACTOR = 1,
         STAR_SIZE_LIST = {

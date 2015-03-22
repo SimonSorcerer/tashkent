@@ -1,7 +1,5 @@
 define(function () {
-    function random(min, max) {
-        return Math.floor(Math.random() * Math.abs(max - min + 1) + min);
-    }
+    'use strict';
 
     function generate() {
         return {

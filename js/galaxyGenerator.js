@@ -1,4 +1,6 @@
 define(['starGenerator'], function (starGenerator) {
+    'use strict';
+
     var MAX_STARS_PER_UNIT = 0.001;
 
     function setDefaults() {
@@ -6,7 +8,7 @@ define(['starGenerator'], function (starGenerator) {
             dimensions: {
                 width: 1000,
                 height: 1000,
-                depth: 100
+                depth: 1000
             }
         };
     }
@@ -14,11 +16,12 @@ define(['starGenerator'], function (starGenerator) {
     function generateStars(dimensions, density) {
         var starOccurrenceProbability = MAX_STARS_PER_UNIT * density,
             stars = [],
-            planetCount = 0;
+            planetCount = 0,
+            i, j, k;
 
-        for (var i = 0; i <= dimensions.width; i++) {
-            for (var j = 0; j <= dimensions.height; j++) {
-                for (var k = 0; k <= dimensions.depth; k++) {
+        for (i = 0; i <= dimensions.width; i += 10) {
+            for (j = 0; j <= dimensions.height; j += 10) {
+                for (k = 0; k <= dimensions.depth; k += 10) {
                     if (Math.random() <= starOccurrenceProbability) {
                         stars.push(starGenerator.generate(i, j, k));
                     }
